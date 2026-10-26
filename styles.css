@@ -497,8 +497,8 @@ img { display: block; }
 @media(prefers-reduced-motion:reduce){.sources-page{margin-top:0;padding-top:100px;mask-image:none}}
 
 /* More scroll distance per scene and a softer timeline response. */
-.intro{height:21500svh}
-@media(max-width:600px){.intro{height:21000svh}}
+.intro{height:30000svh}
+@media(max-width:600px){.intro{height:29500svh}}
 /* Popup cards from Figma 374:39321. */
 .answer-dialog{width:min(1000px,calc(100% - 48px));max-height:calc(100svh - 48px);padding:64px;border-radius:32px;overflow:auto}.answer-dialog[open]{gap:32px}.answer-dialog .choice-summary{font-size:42px;line-height:1.3;letter-spacing:-.7px}.answer-dialog .choice-note{font-size:28px;line-height:1.3;letter-spacing:-.7px;white-space:pre-line}.answer-dialog .return-reading{width:300px;max-width:100%;padding:16px 24px;border-radius:30px;background:#ebdeff;text-align:left;font-size:24px;line-height:1.3}.popup-signal{margin:0;color:#8057b8;font-size:52px;line-height:1.3;letter-spacing:-.7px}.popup-detail{margin:0;color:#1f1f1f;font-size:24px;line-height:1.3}.answer-dialog [hidden]{display:none}
 @media(max-width:600px){.answer-dialog{width:calc(100% - 32px);padding:28px 24px;border-radius:24px}.answer-dialog[open]{gap:24px}.answer-dialog .choice-summary{font-size:27px}.answer-dialog .choice-note{font-size:19px}.answer-dialog .return-reading{font-size:18px;width:auto}.popup-signal{font-size:34px}.popup-detail{font-size:18px}}

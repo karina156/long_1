@@ -22,7 +22,7 @@
    return { heading, output, letters, cursor: { count: 0 } };
   });
   gsap.set('.people-title', { scale: .12037, fontWeight: 400, '--title-ink': 1 });
-  const tl = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '#intro', start: 'top top', end: 'bottom bottom', scrub: .9, invalidateOnRefresh: true } });
+  const tl = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '#intro', start: 'top top', end: 'bottom bottom', scrub: 1.4, invalidateOnRefresh: true } });
   tl.addLabel('circle',0)
    .to('.seed-state',{ autoAlpha:0, duration:.25 },.4)
    .fromTo('.ring-state',{ autoAlpha:0 },{ autoAlpha:1, duration:.25 },.4)
