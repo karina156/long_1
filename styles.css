@@ -551,3 +551,11 @@ img { display: block; }
 @media(max-width:600px){.loading-note{top:calc(50% + 38px);font-size:13px}}
 
 .loading-note{left:50%;top:calc(50% + 55.5px);transform:translateX(-50%);width:max-content;max-width:90%;min-height:28px;margin:0;font-family:Onest,sans-serif;font-style:normal;font-weight:400;font-size:22px;line-height:28px;color:#0f0f0f;opacity:.5}
+
+#presence:not(.has-chat-interface) .three-contact{left:109.3px;width:65.294px;font-size:17.604px;line-height:26.406px}
+#presence:not(.has-chat-interface) .three-contact small,#presence:not(.has-chat-interface) .three-contact-photo img{visibility:hidden}
+#presence:not(.has-chat-interface) .three-history{top:466.34px;align-items:center;gap:4.329px;padding:0 5.772px 5.772px}
+#presence:not(.has-chat-interface) .three-history p{align-self:center;background:#cdabff;font-size:8.85px;line-height:11.972px;padding:5.772px 8.658px}
+#presence:not(.has-chat-interface) .three-history time{display:none}
+.customize-phone .three-back[src*="114-6622"]{visibility:hidden!important}
+.alive-track,.alive-opening{background-color:#fff}

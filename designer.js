@@ -81,7 +81,7 @@ media.add('(prefers-reduced-motion: reduce)',()=>{
  jump=directTheme;window.applyReducedTheme=directTheme;
  ScrollTrigger.create({trigger:'#intro',start:'top top',end:'bottom bottom',onUpdate:self=>{
  const index=Math.min(99,Math.floor(self.progress*100))-20;gsap.set(root,{autoAlpha:index>0?1:0});
- if(index===0){gsap.set('#presence',{autoAlpha:1});gsap.set('.three-content',{autoAlpha:1});gsap.set('.designer-role',{autoAlpha:1});gsap.set('#presence .three-phone',{left:innerWidth<=600?'69%':1193.767,top:innerWidth<=600?'40%':156});gsap.set('.participant-row',{left:innerWidth<=600?'50%':317.691,top:innerWidth<=600?'32%':361.4});}
+ if(index===0){document.querySelector('#presence').classList.add('has-chat-interface');gsap.set('#presence',{autoAlpha:1});gsap.set('.three-content',{autoAlpha:1});gsap.set('.designer-role',{autoAlpha:1});gsap.set('#presence .three-phone',{left:innerWidth<=600?'69%':1193.767,top:innerWidth<=600?'40%':156});gsap.set('.participant-row',{left:innerWidth<=600?'50%':317.691,top:innerWidth<=600?'32%':361.4});}
  gsap.set(selectors,{autoAlpha:0});if(index>0)gsap.set(selectors[Math.min(index-1,2)],{autoAlpha:1});
  if(index===3){gsap.set('.chat-shade,.chat-sheet',{autoAlpha:1});gsap.set('.chat-sheet',{y:0,yPercent:0});gsap.set('.theme-title,.theme-question,.theme-tabs,.theme-message',{autoAlpha:0});}
  if(index>=4){if(index<=6)directTheme(index-4);gsap.set('.chat-shade,.chat-sheet,.customize-title,.customize-note',{autoAlpha:0});gsap.set('.theme-title,.theme-question,.theme-tabs,.theme-message',{autoAlpha:1});}

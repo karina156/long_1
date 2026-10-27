@@ -20,7 +20,7 @@
  media.add('(prefers-reduced-motion: no-preference)',()=>{
   const mobile=innerWidth<=600,cleanups=[];
   const parent=window.longreadTimeline;
-  const tl=gsap.timeline({defaults:{ease:'sine.inOut'},onUpdate:()=>root.querySelector('.research-content').classList.toggle('is-drifting',tl.time()>=8.4&&tl.time()<10.2)});
+  const tl=gsap.timeline({defaults:{ease:'sine.inOut'},onUpdate:()=>{root.querySelector('.research-content').classList.toggle('is-drifting',tl.time()>=8.4&&tl.time()<10.2);root.classList.toggle('has-chat-interface',tl.time()>=15.9);}});
   tl.fromTo('.presence-panel',{yPercent:90,scale:.4,autoAlpha:0},{yPercent:0,scale:1,autoAlpha:1,duration:1},0)
    .fromTo('.unknown-sender',{autoAlpha:0,y:12},{autoAlpha:1,y:0,duration:.5},1.15)
    .fromTo('.sender-divider',{autoAlpha:0},{autoAlpha:1,duration:.4},1.8)
@@ -66,7 +66,7 @@
    if(index<4)gsap.set('.presence-panel',{autoAlpha:1,top:mobile?(index===1?'28%':'4%'):[121,361,76,64][index],height:mobile?(index===1?'44%':'92%'):[741,260,824,855][index]});
    gsap.set(['.number-content','.definition-content','.research-content','.closeness-content','.three-content'][index],{autoAlpha:1});
    if(index===3){gsap.set('.concept-left',{x:innerWidth<=600?innerWidth*.38-113.62:289});gsap.set('.concept-right',{x:innerWidth<=600?-innerWidth*.02-13.34:-291});}
-   if(index===4){gsap.set('.three-background',{autoAlpha:1});gsap.set('#presence .three-phone',{left:'50%',top:mobile?'18%':164.94});gsap.set('.participant-row',{left:'50%',top:mobile?'var(--three-avatar-top)':805.71});gsap.set('.designer-role',{autoAlpha:0});}
+   if(index===4){root.classList.remove('has-chat-interface');gsap.set('.three-background',{autoAlpha:1});gsap.set('#presence .three-phone',{left:'50%',top:mobile?'18%':164.94});gsap.set('.participant-row',{left:'50%',top:mobile?'var(--three-avatar-top)':805.71});gsap.set('.designer-role',{autoAlpha:0});}
   };
   gsap.set(root,{autoAlpha:0});
   ScrollTrigger.create({trigger:'#intro',start:'top top',end:'bottom bottom',onUpdate:self=>{const index=Math.min(99,Math.floor(self.progress*100))-15;gsap.set(root,{autoAlpha:index>=0&&index<5?1:0});if(index>=0&&index<5)show(index);}});
