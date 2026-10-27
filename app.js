@@ -100,6 +100,7 @@
   document.fonts.load('500 12px Inter','00 · a')
  ]).then(()=>document.fonts.ready);
  Promise.all([pageLoaded,imagesLoaded,fontsLoaded]).then(()=>{
+  loader.querySelector('.loading-note').textContent='Загрузка завершена, листайте!';
   content.inert=false;
   content.setAttribute('aria-busy','false');
   document.documentElement.classList.remove('is-loading');
@@ -108,6 +109,7 @@
   window.dispatchEvent(new Event('longread:ready'));
  }).catch(()=>{
   loader.querySelector('.word').textContent='Не загрузилось';
+  loader.querySelector('.loading-note').textContent='Проверьте подключение и попробуйте ещё раз';
   loader.querySelector('.dots').hidden=true;
   const retry=loader.querySelector('.retry');
   retry.hidden=false;
