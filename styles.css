@@ -559,3 +559,5 @@ img { display: block; }
 #presence:not(.has-chat-interface) .three-history time{display:none}
 .customize-phone .three-back[src*="114-6622"]{visibility:hidden!important}
 .alive-track,.alive-opening{background-color:#fff}
+
+.webring-wrap{position:relative;z-index:1;background:#fff;color:#0f0f0f;padding:0 max(7vw,24px) 64px}.webring-inner{max-width:1180px;margin:0 auto}.webring-wrap .course-webring{margin-top:0;padding-top:24px}.webring-wrap{padding-top:64px}
