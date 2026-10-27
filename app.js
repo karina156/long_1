@@ -24,6 +24,7 @@
   gsap.set('.people-title', { scale: .12037, fontWeight: 400, '--title-ink': 1 });
   const tl = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: '#intro', start: 'top top', end: 'bottom bottom', scrub: 1.4, invalidateOnRefresh: true } });
   tl.addLabel('circle',0)
+   .to(loader,{autoAlpha:0,duration:.6,ease:'sine.inOut'},.05)
    .to('.seed-state',{ autoAlpha:0, duration:.25 },.4)
    .fromTo('.ring-state',{ autoAlpha:0 },{ autoAlpha:1, duration:.25 },.4)
    .fromTo('.ring',{ scale:.0225 },{ scale:1, duration:.8, ease:'sine.inOut' },.4)
@@ -69,14 +70,14 @@
  });
  // Reduced motion uses discrete compositions, without zooming or moving faces.
  media.add('(prefers-reduced-motion: reduce)', () => {
-  const targets=['.seed-state','.ring-state','.people-background','.people-title','.people','.between-title','.more-state'];
+  const targets=['#preloader','.seed-state','.ring-state','.people-background','.people-title','.people','.between-title','.more-state'];
   let current=-1;
   const showState = state => {
    if (state===current) return;
    current=state;
    gsap.set(targets,{ autoAlpha:0 });
    gsap.set(people,{ autoAlpha:1 });
-   if(state===0) gsap.set('.seed-state',{ autoAlpha:1 });
+   if(state===0) gsap.set(loader,{ autoAlpha:1 });
    if(state===1) gsap.set(['.ring-state','.people-title'],{ autoAlpha:1 });
    if(state===1) gsap.set('.people-title',{ scale:.12037, fontWeight:400, '--title-ink':1, top:'50%', left:'50%' });
    if(state===2) gsap.set('.people-title',{ scale:1, fontWeight:400, '--title-ink':0, top:'47.607%', left:'50.501%' });
@@ -103,10 +104,7 @@
   content.setAttribute('aria-busy','false');
   document.documentElement.classList.remove('is-loading');
   ScrollTrigger.refresh();
-  loader.classList.add('leaving');
-  const remove=()=>loader.remove();
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) remove();
-  else loader.addEventListener('transitionend',remove,{ once:true });
+  loader.setAttribute('aria-busy','false');
   window.dispatchEvent(new Event('longread:ready'));
  }).catch(()=>{
   loader.querySelector('.word').textContent='Не загрузилось';
